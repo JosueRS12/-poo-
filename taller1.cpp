@@ -26,7 +26,7 @@ void programa9(){
     int n,tf;
 	float sb=0,r=0,sn=0,tm=80000*10;
 	string datos;
-	
+	cout<<"		SALARIO DE EMPLEADOS\n";
 	cout<<"Ingrese la cantidad de empleados \n";
 	cin>>n;
 	
@@ -91,7 +91,7 @@ void programa9(){
 void programa8(){
 	int cmp=0;
 	system("cls");
-	cout<<"		Programa 8 \n";
+	cout<<"		PERTENECE A SERIE FIBONACCI \n";
 	cout<<"	Ingrese el numero\n";
 	cin>>num;
 	i=0;
@@ -108,7 +108,7 @@ void programa8(){
 	system("cls");
 }
 void programa6(){	
-	cout<<"		Programa 6 \n";
+	cout<<"		NUMEROS DEL 1 AL 10 \n";
 	i=10;
 	int k=1;
 	while(i!=0){
@@ -120,7 +120,7 @@ void programa6(){
 }
 void programa14(){
 	int arr[10], k=0, n;
-	cout<<"		Programa 14 \n";
+	cout<<"		BINARIO Y HEXADECIMAL \n";
 	cout<<" Ingrese un numero en base 10 mayor a 0\n";
 	cin>>num;
 	n=num;
@@ -143,6 +143,7 @@ void programa2(){
 	string datos;
 	float seec=0,ceec=0,chin=0,peem=0,ceem=0,semin=0,pemin=0,ph=0,ch=0,phin=0,peec=0,cemin=0;
 	i=1;
+	cout<<"		UNIVERSIDAD\n";
 	cout<<"	Ingrese el numero de estudiantes \n";
 	cin>>n;
 	
@@ -179,7 +180,7 @@ void programa2(){
 			ch++;
 		peec=seec/ceec; //promedio de edad estudiantes contduria
 		phin=(chin/n)*100; //porcentaje hombres ingenieria noche
-		peem=(ceem/n)*100; //porcentaje mujeres menores a 20 años
+		peem=(ceem/n)*100; //porcentaje mujeres menores a 20 aÃ±os
 		pemin=semin/cemin; //promedio mujeres ingenieria
 		ph=(ch/n)*100; //porcentaje hombres derecho
 		i++;
@@ -188,22 +189,53 @@ void programa2(){
 	}
 		cout<<" promedio de edad estudiantes de contaduria es: "<<peec<<endl;
 		cout<<" porcentaje de estudiantes hombres que estudian ingenieria la noche: "<<phin<<endl;
-		cout<<" porcentaje de estudiantes mujeres que estudian ingenieria y son menores a 20 años "<<peem<<endl;
+		cout<<" porcentaje de estudiantes mujeres que estudian ingenieria y son menores a 20 aÃ±os "<<peem<<endl;
 		cout<<" promedio de estudiantes mujeres que estudian ingenieria "<<pemin<<endl;
-		cout<<" porcentaje de estudiantes hombres que estudian derecho y que son mayores a 22 años "<<ph<<endl;
+		cout<<" porcentaje de estudiantes hombres que estudian derecho y que son mayores a 22 aÃ±os "<<ph<<endl;
 		system("pause");
 		system("cls");
 	
 }
 void programa5(){
+	int div5=0,div10=0,cont=0,sum=0,prom=0;
+	system("cls");
+	cout<<"		PROMEDIO DIGITO 5 \n";
 	cout<<"	Ingrese el numero \n";
 	do{
 		cin>>num;
-		if(num/)
+		div5=num%5;
+		div10=num%10;
+		if(div5==0&&div10!=0){
+			sum+=num;
+			cont++;
+		}
 	}	
 	while(num!=0);
+	prom=sum/cont;
+	cout<<" El promedio de los numeros terminados con ditigo 5 es: "<<prom<<endl;
+	system("pause");
+	system("cls");
 }
+void programa7(){
+	system("cls");
+	int fib=0,fib1,fib2=0;
+	cout<<"		SERIE FIBONACCI\n";
+	cout<<"\n0\n";
+	cout<<fib1<<endl;
+	fib1=1;
+	i=2;
+	while(fib<=10000){
+		fib=fib1+fib2;
+		fib2=fib1;
+		fib1=fib;
+		cout<<fib<<endl;
+		i++;
+	}
+	
+	system("pause");
+	system("cls");
 
+}
 
 int main(){
 	int op;
@@ -214,16 +246,16 @@ int main(){
 		cout<<" 2) Universidad\n";
 		cout<<" 3)\n";
 		cout<<" 4)\n";
-		cout<<" 5)\n";
+		cout<<" 5) Promedio digito 5\n";
 		cout<<" 6) Numeros del 1 al 10 \n";
-		cout<<" 7)\n";
+		cout<<" 7) Serie fibonacci\n";
 		cout<<" 8) Pertenece a serie fibonacci\n";
 		cout<<" 9) Salario de los empresarios\n";
 		cout<<" 10)\n";
 		cout<<" 11)\n";
 		cout<<" 12)\n";
 		cout<<" 13)\n";
-		cout<<" 14) Binario y hexadecimal\n";
+		cout<<" 14)Binario y hexadecimal\n";
 		cout<<" 15)\n";
 		cout<<" 16)\n";
 		cout<<" 17)\n";
@@ -248,7 +280,10 @@ int main(){
 			break;
 			case 2:programa2();
 			break;
-
+			case 5:programa5();
+			break;
+			case 7:programa7();
+			break;
 			default: cout<<"Salir \n";
 			break;
 		}
