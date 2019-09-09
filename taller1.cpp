@@ -685,8 +685,98 @@ void programa23(){
 	system("pause");
 	system("cls");
 }
-
-
+void programa25(){
+	system("cls");
+	int fil,col,j,matriz[100][100],k,cont=0,contpr=0;
+	float prim=0;
+	cout<<"	PRIMOS EN MATRIZ \n";
+	cout<<"Ingrese la cantidad de filas de la matriz\n";
+	cin>>fil;
+	cout<<"Ingrese la cantidad de columnas de la matriz\n";
+	cin>>col;
+	cout<<"Ingrese valores enteros \n";
+	for(i=0;i<fil;i++){
+		for(j=0;j<col;j++){
+			cin>>matriz[i][j];
+			cont=0;
+			for(k=1;k<=matriz[i][j];k++){
+				prim=matriz[i][j]%k;
+				if(prim==0)
+					cont++;
+			}
+			if(cont==2)
+				contpr++;
+		}
+	}
+	
+	cout<<"\n El numero de primos son: "<<contpr<<endl;
+	system("pause");
+	system("cls");
+}
+void programa24(){
+	system("cls");
+	int j, suc[100][100],aux=0,mayor[100][100],vtasur=0,vtacomp=0,vtames=0;
+	cout<<"		ZAPATOS COLEGIALES\n";
+	cout<<"Señor Director de TI, ingrese la siguiente informacion \n";
+	for(i=0;i<12;i++){
+		cout<<"para sucursal "<<i+1<<endl;
+		for(j=0;j<12;j++){
+			cout<<"Venta de la sucursal en el mes\n";
+			cin>>suc[i][j];
+		}
+	}
+	//ordenar la matriz de menor a mayor en las columnas..... por sucursal
+	for(i=0;i<12;i++){
+		for(j=0;j<12;j++){
+			if(suc[i][j]>suc[i][j+1]){
+				aux=suc[i][j];
+				suc[i][j]=suc[i][j+1];
+				suc[i][j+1]=aux;
+			}
+		}
+	}
+	for(i=0;i<12;i++){
+		mayor[i][0]=suc[i][11];
+	}
+	
+	//guardar las ventas mayores de cada sucursal
+	for(i=0;i<12;i++){
+		for(j=0;j<12;j++){
+			if(mayor[j][0]>mayor[j+1][0]){
+				aux=j+1;
+				mayor[j][0]=j+2;
+				mayor[j+1][0]=aux;
+			}
+		}
+	}
+	system("cls");
+	cout<<" La sucursal con mayor ventas es "<<mayor[11][0]; 
+	cout<<" La sucursal con menor ventas es "<<mayor[0][0]; 
+	
+	
+	for(i=0;i<12;i++){
+		cout<<"\n 	venta total por sucursal "<<i+1<<endl;
+		vtasur=0;
+		for(j=0;j<12;j++)
+			vtasur+=suc[i][j];
+		cout<<" venta total: "<<vtasur<<" pesos"<<endl;
+		vtacomp+=vtasur;
+	}
+	for(j=0;j<12;j++){
+		cout<<"\n	Ventas totales por mes "<<j+1<<endl;
+		vtames=0;
+		for(i=0;i<12;i++){
+			vtames+=suc[i][j];
+		}
+		cout<<" venta total: "<<vtames<<" pesos"<<endl;
+	}
+	
+	
+	cout<<" venta total compania es de "<<vtacomp<<" pesos\n";
+	
+	//PROBAR
+	
+}
 
 
 int main(){
@@ -717,8 +807,8 @@ int main(){
 		cout<<" 21)vector mayor primo leido\n";
 		cout<<" 22)Promedio factorial matriz\n";
 		cout<<" 23)Repeticiones del numero mayor matriz\n";
-		cout<<" 24)\n";
-		cout<<" 25)\n";
+		cout<<" 24)Zapatos colegiales\n";
+		cout<<" 25)Primos en matriz\n";
 		cout<<" 00)Salir\n";
 		cin>>op;
 
@@ -756,6 +846,10 @@ int main(){
 			case 22:programa22();//
 			break;
 			case 23:programa23();//
+			break;
+			case 25:programa25();//
+			break;
+			case 24:programa24();//
 			break;
 			default: cout<<"Salir \n";
 			break;
