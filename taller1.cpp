@@ -778,6 +778,73 @@ void programa24(){
 	
 }
 
+void programa15(){
+	system("cls");
+	char nombre [25];
+	char sexo;
+	int edad;
+	int ojoscl;
+	int cabellocl;
+	int n=0;
+	int contador1=0;
+	int contador2=0;
+	float estatura;
+	float peso;
+	cout<<"		REGISTRO EMPLEADOS\n ";
+
+	do{
+		cout<<"\n ingrese el nombre del alumno:\n";
+		cin>>nombre;
+		cout<<"\n introduce la edad:\n";
+		cin>>edad;
+		cout<<"\n introduce el sexo: [M] para masculino o [F] para femenino:\n";
+		cin>>sexo;
+		cout<<"\n introduce el color de ojos\n (1.Azules 2.Cafe 3.Otros)\n ";
+		cin>>ojoscl;
+		cout<<"\n introduce el color de cabello\n (1.Castaño 2.Rubio 3.Otros)\n ";
+		cin>>cabellocl;
+		cout<<"introduce la estatura en metros:\n";
+		cin>>estatura;
+		cout<<"introduce el peso en kg: \n";
+		cin>>peso;
+		if((sexo=='F'||sexo=='f')&&(estatura>=1.65&&estatura<=1.75)&&(peso<=55)&&(ojoscl==1)&&(cabellocl==2)){
+			contador1++;
+		cout<<"la alumna cumple con las caracteristicas\n"<<nombre<<endl;
+
+		}else{
+			if((sexo=='M'||sexo=='m')&&(estatura>=1.70)&&(peso>=60&&peso<=70)&&(ojoscl==2)){
+				contador2++;
+					cout<<"el alumno cumple con las caracteristicas\n"<<nombre<<endl;
+
+			}else{
+				cout<<"los datos ingresados NO cumplen con lo solicitado.\n";
+
+
+			}
+			cout<<"Desea intentar de nuevo?\n 1=si\n 2=no\n";
+			cin>>n;
+
+
+
+		}
+
+
+
+
+	}while(n==1);
+
+	cout<<" numero de mujeres con las caracteristicas pedidas:\n"<<contador1<<endl;
+	cout<<" numero de hombres con las caracteristicas pedidas:\n"<<contador2<<endl;
+
+
+	system("pause");
+	sysem("cls")
+}
+
+
+
+
+
 
 int main(){
 	int op;
@@ -798,7 +865,7 @@ int main(){
 		cout<<" 12)Promedio grupos escolares\n";
 		cout<<" 13)\n";
 		cout<<" 14)Binario y hexadecimal\n";
-		cout<<" 15)\n";
+		cout<<" 15)Registro empleados\n";
 		cout<<" 16)\n";
 		cout<<" 17)\n";
 		cout<<" 18)Suma, producto y diferencia vectores\n";
@@ -850,6 +917,8 @@ int main(){
 			case 25:programa25();//
 			break;
 			case 24:programa24();//
+			break;
+			case 15:programa15();//
 			break;
 			default: cout<<"Salir \n";
 			break;
