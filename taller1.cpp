@@ -180,7 +180,7 @@ void programa2(){
 			ch++;
 		peec=seec/ceec; //promedio de edad estudiantes contduria
 		phin=(chin/n)*100; //porcentaje hombres ingenieria noche
-		peem=(ceem/n)*100; //porcentaje mujeres menores a 20 años
+		peem=(ceem/n)*100; //porcentaje mujeres menores a 20 aÃ±os
 		pemin=semin/cemin; //promedio mujeres ingenieria
 		ph=(ch/n)*100; //porcentaje hombres derecho
 		i++;
@@ -189,9 +189,9 @@ void programa2(){
 	}
 		cout<<" promedio de edad estudiantes de contaduria es: "<<peec<<endl;
 		cout<<" porcentaje de estudiantes hombres que estudian ingenieria la noche: "<<phin<<endl;
-		cout<<" porcentaje de estudiantes mujeres que estudian ingenieria y son menores a 20 años "<<peem<<endl;
+		cout<<" porcentaje de estudiantes mujeres que estudian ingenieria y son menores a 20 aÃ±os "<<peem<<endl;
 		cout<<" promedio de estudiantes mujeres que estudian ingenieria "<<pemin<<endl;
-		cout<<" porcentaje de estudiantes hombres que estudian derecho y que son mayores a 22 años "<<ph<<endl;
+		cout<<" porcentaje de estudiantes hombres que estudian derecho y que son mayores a 22 aÃ±os "<<ph<<endl;
 		system("pause");
 		system("cls");
 	
@@ -320,7 +320,7 @@ void programa12(){
 void programa18(){
 	int n,i;
 	cout<<"		SUMA, PRODUCTO Y DIFERENCIA VECTORES\n";
-	cout<< "Ingrese el tamaño del Arreglo A y Arreglo B\n";
+	cout<< "Ingrese el tamaÃ±o del Arreglo A y Arreglo B\n";
 	cin>>n;
 	
 	int arregloA[n];
@@ -375,7 +375,7 @@ void programa18(){
 void programa21(){
 	int n,i,contador=0,primoM=0,primoP=0;
 	cout<<"		Programa 21\n";
-	cout<< "Ingrese el tamaño del Arreglo\n";
+	cout<< "Ingrese el tamaÃ±o del Arreglo\n";
 	cin>>n;
 	int Arr[n];
 	for(i=0;i<n;i++){
@@ -681,7 +681,7 @@ void programa23(){
 	}
 	cout<<"\n el numero mayor es: \n "<<mayor<<endl;
 	cout<<"\n se repite\n"<<numMa<<"\n veces\n"<<endl;							
-	cout<<"el tamaño de matriz_a es: "<<i<<","<<j<<endl;
+	cout<<"el tamaÃ±o de matriz_a es: "<<i<<","<<j<<endl;
 	system("pause");
 	system("cls");
 }
@@ -717,11 +717,11 @@ void programa24(){
 	system("cls");
 	int j, suc[100][100],aux=0,mayor[100][100],vtasur=0,vtacomp=0,vtames=0;
 	cout<<"		ZAPATOS COLEGIALES\n";
-	cout<<"Señor Director de TI, ingrese la siguiente informacion \n";
+	cout<<"SeÃ±or Director de TI, ingrese la siguiente informacion \n";
 	for(i=0;i<12;i++){
 		cout<<"para sucursal "<<i+1<<endl;
 		for(j=0;j<12;j++){
-			cout<<"Venta de la sucursal en el mes\n";
+			cout<<"Venta de la sucursal en el mes"<<j+1<<endl;
 			cin>>suc[i][j];
 		}
 	}
@@ -801,7 +801,7 @@ void programa15(){
 		cin>>sexo;
 		cout<<"\n introduce el color de ojos\n (1.Azules 2.Cafe 3.Otros)\n ";
 		cin>>ojoscl;
-		cout<<"\n introduce el color de cabello\n (1.Castaño 2.Rubio 3.Otros)\n ";
+		cout<<"\n introduce el color de cabello\n (1.CastaÃ±o 2.Rubio 3.Otros)\n ";
 		cin>>cabellocl;
 		cout<<"introduce la estatura en metros:\n";
 		cin>>estatura;
@@ -838,7 +838,7 @@ void programa15(){
 
 
 	system("pause");
-	sysem("cls")
+	system("cls");
 }
 
 
