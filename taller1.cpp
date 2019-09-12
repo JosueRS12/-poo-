@@ -3,6 +3,9 @@
 #include<string>
 #include<stdlib.h>
 #include<stdio.h>
+int respuestas[60] = {1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5}; 
+
+
 using namespace std;
 int num,i;
 struct Empleado{
@@ -784,7 +787,6 @@ void programa24(){
 	system("pause");
 	system("cls");
 }
-
 void programa15(){
 	system("cls");
 	char nombre [25];
@@ -847,10 +849,290 @@ void programa15(){
 	system("pause");
 	system("cls");
 }
-
-
-
-
+void programa13(){
+	system("cls");
+	cout<<"		OFICINA DE SEGUROS\n";
+	float n,sex,reg,nacimi,menor=0,fem=0,hom=0,fuera=0;
+	cout<<"Ingrese el número de accidentes"<<endl;
+	cin>>n;
+	cout<<endl;
+	
+	for (int i=1;i<=n;i++){
+		cout<<"Ingrese año de nacimiento del conductor "<<i<<endl;
+		cin>>nacimi;
+		cout<<endl;
+		
+		cout<<"sexo del conductor "<<i<<"  (femenino = 1, masculino = 2): "<<endl;
+		cin>>sex;
+		cout<<endl;
+		
+		cout<<"registro del carro del conductor "<<i<<" (1:medellin, 2:otras ciudades)"<<endl;
+		cin>>reg;
+		cout<<endl;
+		
+		if(nacimi>1994){
+			menor++;
+		}
+		if (sex==1){
+			fem++;
+		}
+        if (sex==2 && (nacimi<2007&&nacimi>1989)){
+        	hom++;
+		}
+		if(reg==2){
+			fuera++;
+			
+		}
+		
+	}
+	float porc_1 = 0, porc_2 = 0, porc_3 = 0, porc_4 = 0;
+	
+	porc_1 = menor * (n / 100);
+	porc_2 = fem * (n / 100);
+	porc_3 = hom * (n / 100);
+	porc_4 = fuera * (n / 100);
+	
+	cout<<"Conductores menores de 25 años: "<<porc_1<<"%"<<endl;
+	cout<<"Conductores del sexo femenino: "<<porc_2<<"%"<<endl;
+	cout<<"Conductores entre 12 y 30 años: "<<porc_3<<"%"<<endl;
+	cout<<"Conductores con vehículos registrados fuera de Medellín: "<<porc_4<<"%"<<endl;
+	
+	
+	system("pause");
+	system("cls");
+}
+void programa16(){
+	system("cls");
+	
+	cout<<"		VIAJE DE ESTUDIOS\n";
+	
+	
+	long int n, precio = 0, roam = 0;
+	
+	cout<<"Ingrese el número de alumnos"<<endl;
+	cin>>n;
+	cout<<endl;
+	
+	if (n >= 100)
+	{
+		precio = n * 65000;
+		roam = 65000;
+	}
+	else
+	{
+		if(n >= 50 && n <= 99)
+		{
+			precio = n * 70000;
+			roam = 70000;
+		}
+		else
+		{
+			if(n >= 30 && n <= 49)
+			{
+				precio = n * 95000;
+				roam = 95000;
+			}
+			else
+			{
+				precio = 400000;					
+			}			
+		}
+	}
+	
+	cout<<"El precio total a pagar a la compañia es de: $"<<precio<<endl<<endl;
+	if(precio == 400000)
+	{
+		roam = 400000 / n;
+		cout<<"Cada alumno debe pagar: $"<<roam<<endl;
+	}
+	else
+	{
+		cout<<"Cada alumno debe pagar: $"<<roam<<endl;
+	}
+	system("pause");
+	system("cls");
+}
+void programa17(){
+	system("cls");
+	
+	cout<<"		BECAS UD\n";
+	
+	string nombre;
+	int edad, a;
+	float promedio;
+	
+	
+	do
+	{
+		cout<<"Ingrese el nombre del estudiante"<<endl;
+		cin>>nombre;
+		cout<<endl;
+		
+		cout<<"Ingrese la edad de "<<nombre<<endl;
+		cin>>edad;
+		cout<<endl;
+		
+		cout<<"Ingrese el promedio académico de "<<nombre<<endl;
+		cin>>promedio;
+		cout<<endl;
+		
+		if(edad > 18)
+		{
+			if(promedio >= 9)
+			{
+				cout<<nombre<<" aplica para una beca de $2.000.000"<<endl;
+			}			
+			else
+			{
+				if(promedio >= 7.5 && promedio < 9)
+				{
+					cout<<nombre<<" aplica para una beca de $1.000.000"<<endl;
+				}
+				else
+				{
+					if(promedio >= 6 && promedio < 7.5)
+					{
+						cout<<nombre<<" aplica para una beca de $500.000"<<endl;
+					}
+					else
+					{
+						cout<<"Se enviará una invitación a "<<nombre<<" para mejorar su condición académica"<<endl;
+					}
+				}
+			}
+		}
+		
+		if(edad <= 18)
+		{
+			if(promedio >= 9)
+			{
+				cout<<nombre<<" aplica para una beca de $3.000.000"<<endl;
+			}			
+			else
+			{
+				if(promedio >= 8 && promedio < 9)
+				{
+					cout<<nombre<<" aplica para una beca de $2.000.000"<<endl;
+				}
+				else
+				{
+					if(promedio >= 6 && promedio < 8)
+					{
+						cout<<nombre<<" aplica para una beca de $1.000.000"<<endl;
+					}
+					else
+					{
+						cout<<"Se enviará una invitación a "<<nombre<<" para mejorar su condición académica"<<endl;
+					}
+				}
+			}
+		}
+		
+		cout<<endl;
+		cout<<"¿Desea evaluar otro estudiante?"<<endl<<endl;
+		cout<<"Escriba 1 para si o 2 para no"<<endl;
+		cin>>a;
+		cout<<endl;
+		system("cls");
+	}while(a == 1);
+	system("pause");
+	system("cls");
+}
+void programa19(){
+	system("cls");
+	cout<<"		EXAMEN DE ADMISION\n";
+	
+	int N, i, j, cred;
+	int resmat;
+	int respro;
+	int credgan = 0, exam1 = 0, exam2 = 0, maypun = 0, examtot = 0, sumtot = 0, credpro = 0, puntpro = 0;
+	int bien[60];
+	float prom = 0, promtot = 0;
+	
+	
+	cout<<"Ingrese el número de estudiantes que presentaron la prueba"<<endl;
+	cin>>N;
+	cout<<endl;
+	int totalmat[30], totalpro[30];
+	
+	for(i = 0; i < N; i++)
+	{
+		cout<<"Ingrese la credencial del "<<i+1<<"° estudiante"<<endl;
+		cin>>cred;
+		cout<<endl;		
+		
+		exam1 = 0;
+		for(j = 0; j < 30; j++)
+		{
+			resmat = 0;
+			cout<<"Ingrese la "<<j+1<<"° respuesta de la prueba"<<endl;
+			cin>>resmat;
+			cout<<endl;
+		
+			if(resmat == respuestas[j])
+			{
+				examtot++;
+				exam1++;
+				bien[j] = bien[j] + 1;
+				totalmat[j] = totalmat[j] + 1;
+			}
+			if(j == 29)
+			{
+				cout<<"El puntaje de este estuduante es de: "<<exam1<<" en la primera prueba"<<endl<<endl;
+			}		
+		}
+		exam2 = 0;
+		for(j = 30; j < 60; j++)
+		{
+			respro = 0;
+			cout<<"Ingrese la "<<j+1<<"° respuesta de la prueba"<<endl;
+			cin>>respro;
+			cout<<endl;
+			
+			if(respro == respuestas[j])
+			{
+				examtot++;
+				exam2++;
+				bien[j] = bien[j] + 1;
+				totalpro[j] = totalpro[j] + 1;
+			}
+				if(j == 59)
+			{
+				cout<<"El puntaje de este estuduante es de: "<<exam2<<" en la segunda prueba"<<endl<<endl;
+			}	
+		}
+		
+		cout<<"El puntaje total de este estudiante fue de: "<<examtot<<endl<<endl;
+		
+		prom = examtot / 60;
+		
+		cout<<"El promedio de este estudiante fue: "<<prom<<endl<<endl;
+		
+		
+		
+		if(bien[i] > bien[i+1])
+		{
+			credgan = cred;
+			maypun = exam1 + exam2;
+		}	
+	}
+	system("cls");
+	sumtot = sumtot + examtot;
+		
+	promtot = sumtot / 60;
+		
+	if(prom >= promtot)
+	{
+		credpro = cred;
+		puntpro = examtot;
+	}
+	cout<<"La credencial del estudiante con mayor puntaje es: "<<credgan<<" con un puntaje de: "<<maypun<<endl<<endl;
+	cout<<"El promedio total fue de: "<<promtot<<endl<<endl;
+	cout<<"Estudiante con puntaje mayor o igual al promedio: "<<credpro<<" con "<<puntpro<<endl;
+	
+	system("pause");
+	system("cls");
+}
 
 
 int main(){
@@ -870,13 +1152,13 @@ int main(){
 		cout<<" 10)Salario empleados con hijos\n";
 		cout<<" 11)Maranon\n";
 		cout<<" 12)Promedio grupos escolares\n";
-		cout<<" 13)\n";
+		cout<<" 13)Oficina de seguros\n";
 		cout<<" 14)Binario y hexadecimal\n";
 		cout<<" 15)Registro empleados\n";
-		cout<<" 16)\n";
-		cout<<" 17)\n";
+		cout<<" 16)Viaje de estudios\n";
+		cout<<" 17)Becas UD\n";
 		cout<<" 18)Suma, producto y diferencia vectores\n";
-		cout<<" 19)\n";
+		cout<<" 19)Examen de admision\n";
 		cout<<" 20)\n";
 		cout<<" 21)vector mayor primo leido\n";
 		cout<<" 22)Promedio factorial matriz\n";
@@ -926,6 +1208,14 @@ int main(){
 			case 24:programa24();//
 			break;
 			case 15:programa15();//
+			break;
+			case 13:programa13();//
+			break;
+			case 16:programa16();//
+			break;
+			case 17:programa17();//
+			break;
+			case 19:programa19();//
 			break;
 			default: cout<<"Salir \n";
 			break;
