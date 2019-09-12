@@ -91,6 +91,19 @@ void programa9(){
 		system("cls");
 	}	
 }
+void burbuja(int *v,int Tam){
+    int aux;
+    for(int p = 0; p < Tam-1; p++){
+        for(int i = p+1; i < Tam; i++){
+            if(v[i] > v[p]){
+                aux = v[i];
+                v[i] = v[p];
+                v[p] = aux;
+            }
+        }
+    }
+}
+
 void programa8(){
 	int cmp=0;
 	system("cls");
@@ -123,7 +136,9 @@ void programa6(){
 }
 void programa14(){
 	int arr[10], k=0, n;
-	cout<<"		BINARIO Y HEXADECIMAL \n";
+	char hex[10][10];
+	char A[]="A", B[]="B", C[]="C", D[]="D", E[]="E", F[]="F";
+	cout<<"		BINARIO\n";
 	cout<<" Ingrese un numero en base 10 mayor a 0\n";
 	cin>>num;
 	n=num;
@@ -132,10 +147,11 @@ void programa14(){
 		num/=2;
 		k++;
 	}
-	cout<<"El equivalente en binario es de "<<n<<" es: \n";
+	cout<<"El equivalente en binario de "<<n<<" es: \n";
 	for(i=k-1;i>=0;i--){
 		cout<<arr[i];
 	}
+	
 	system("pause");
 	system("cls");
 }
@@ -849,6 +865,18 @@ void programa15(){
 	system("pause");
 	system("cls");
 }
+
+int cuenta(int *v, int b, int p,int Tam){
+    int con = 0;
+    for(int i = p; i < Tam; i++){
+        if(v[i] == b){
+            con++;
+        }
+    }
+    return con;
+}
+
+
 void programa13(){
 	system("cls");
 	cout<<"		OFICINA DE SEGUROS\n";
@@ -1133,6 +1161,138 @@ void programa19(){
 	system("pause");
 	system("cls");
 }
+void programa20(){
+	system("cls");
+	
+	int vec1[100];
+	int vec2[100];
+	int vec3[100];
+	int vec4[100];
+	int vec5[100];
+	int vecc[100];	
+	int rep=0,n=0,a=0,ma=0,prom=0,j=0,k=0,m=0,op=0,o=0;
+	cout<<"Ingrese la cantidad de numeros a operar\n";
+	cin>>n;
+	int Tam=n;
+	n=n-1;
+	for(int i=0;i<=n;i++)
+	{
+		cout<<"ingrese numero de la posicion "<<i<<"\n";
+		cin>>vec1[i];	
+	}
+	do
+	{
+		system("cls");
+		cout<<"\t\t\tMenu de opciones ";
+		cout<<"\n\n1.Encontrar mayor y su pocision.";
+		cout<<"\n2.mayores y menores al promedio.";
+		cout<<"\n3.valores pares e impares";
+		cout<<"\n4.Repeticion de los numeros.";
+		cout<<"\n5.salir\n\n";
+		cin>>op;
+		switch(op)
+		{
+			case 1:
+				//Numero mayor
+				for (int i=0;i<=n;i++)
+				{
+					if(vec1[i]>ma)
+					{
+						ma=vec1[i];
+						a=i;
+					}
+				}
+				cout<<"El numero mayor esta en la pocision: "<<a<<" del vector\n\n";
+				system("pause");				
+			break;
+			case 2:				
+				//vectores del promedio
+				for(int i=0;i<=n;i++)
+				{
+					prom=vec1[i]+prom;
+				}
+				prom=prom/n;
+				for(int i=0;i<=n;i++)
+				{
+					if(vec1[i]<=prom)
+					{						
+						vec2[j]=vec1[i];
+						j=j+1;		
+					}	
+					else if(vec1[i]>prom)
+					{						
+						vec3[k]=vec1[i];
+						k=k+1;			
+					}
+				}
+				cout<<"\nMenores o iguales al promedio: ";
+				for(int i=0;i<j;i++)
+				{
+					cout<<vec2[i]<<", ";
+				}
+				cout<<"\nMayores al promedio: ";
+				for(int i=0;i<k;i++)
+				{
+					cout<<vec3[i]<<", ";
+				}
+				cout<<"\n";
+				system("pause");				
+			break;
+			case 3:
+				//par o impar
+				j=0;
+				k=0;
+			 	for(int i=0;i<=n;i++)
+				{
+					if(vec1[i] % 2 == 0)
+					{						
+						vec4[j]=vec1[i];
+						j=j+1;		
+					}	
+					else 
+					{						
+						vec5[k]=vec1[i];
+						k=k+1;			
+					}
+				}
+					cout<<"\nPares: ";
+				for(int i=0;i<j;i++)
+				{
+					cout<<vec4[i]<<", ";
+				}
+				cout<<"\nImpares: ";
+				for(int i=0;i<k;i++)
+				{
+					cout<<vec5[i]<<", ";
+				}
+				cout<<"\n";
+				system("pause");
+			break;
+			case 4:
+				//veces que se repite	
+				 burbuja(vec1,Tam);
+			    o=0;
+			    while(o < Tam){
+			        m = cuenta(vec1, vec1[o], o, Tam);
+			        cout<<"el valor "<<vec1[o]<<" se repite "<<m<<" veces"<<endl;
+			        o += m;
+			    }
+				cout<<"\n";
+				system("pause");			
+			break;
+			case 5:
+				cout<<"Adios.";
+				cout<<"\n";
+				system("pause");
+			break;
+			default: cout<<"\nValor incorrecto.";
+		}
+	}while(op!=5);
+	
+	
+	system("PAUSE");
+	system("cls");
+}
 
 
 int main(){
@@ -1153,13 +1313,13 @@ int main(){
 		cout<<" 11)Maranon\n";
 		cout<<" 12)Promedio grupos escolares\n";
 		cout<<" 13)Oficina de seguros\n";
-		cout<<" 14)Binario y hexadecimal\n";
+		cout<<" 14)Binario\n";
 		cout<<" 15)Registro empleados\n";
 		cout<<" 16)Viaje de estudios\n";
 		cout<<" 17)Becas UD\n";
 		cout<<" 18)Suma, producto y diferencia vectores\n";
 		cout<<" 19)Examen de admision\n";
-		cout<<" 20)\n";
+		cout<<" 20)Cargar un vector\n";
 		cout<<" 21)vector mayor primo leido\n";
 		cout<<" 22)Promedio factorial matriz\n";
 		cout<<" 23)Repeticiones del numero mayor matriz\n";
@@ -1216,6 +1376,8 @@ int main(){
 			case 17:programa17();//
 			break;
 			case 19:programa19();//
+			break;
+			case 20:programa20();//
 			break;
 			default: cout<<"Salir \n";
 			break;
