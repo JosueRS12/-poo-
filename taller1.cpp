@@ -715,16 +715,16 @@ void programa25(){
 }
 void programa24(){
 	system("cls");
-	int j, suc[100][100],aux=0,mayor[100],vtasur=0,vtacomp=0,vtames=0,cmp=0;
+	int j, suc[100][100],aux=0,mayor[100],vtasur=0,vtacomp=0,vtames=0,cmp[100];
 	cout<<"		ZAPATOS COLEGIALES\n";
 	cout<<"Senor Director de TI, ingrese la siguiente informacion \n";
 	for(i=0;i<12;i++){
-		system("cls");
 		cout<<"\npara sucursal "<<i+1<<endl;
 		for(j=0;j<12;j++){
 			cout<<"Venta de la sucursal en el mes "<<j+1<<endl;
 			cin>>suc[i][j];
 		}
+		system("cls");
 	}
 	system("cls");
 	for(j=0;j<12;j++){
@@ -735,46 +735,54 @@ void programa24(){
 		}
 		cout<<" venta total: "<<vtames<<" pesos"<<endl;
 	}
+	cout<<endl;
 	for(i=0;i<12;i++){
-		cout<<"\n	venta total por sucursal "<<i+1<<endl;
+		cout<<"	venta total por sucursal "<<i+1<<endl;
 		vtasur=0;
 		for(j=0;j<12;j++)
 			vtasur+=suc[i][j];
 		cout<<" venta total: "<<vtasur<<" pesos"<<endl;
 		vtacomp+=vtasur;
-		mayor[i]=vstasur;
+		mayor[i]=vtasur;
+		cmp[i]=vtasur;
 	}	
+	aux=0;
+	for(i=0;i<12;i++){
+		for(j=0;j<12;j++){
+			if(mayor[j]>mayor[j+1]){
+				aux=mayor[j];
+				mayor[j]=mayor[j+1];
+				mayor[j+1]=aux;
+			}
+		}
+	}
 	//comprobar mayor ventas
+	cout<<endl;
+	aux=0;
 	i=0;
-	j=0;
-	while(cmp!=12){
-		if(mayor[i]>mayor[j+1]){
-			cmp++;
-			j++;
+	while(aux==0){
+		if(mayor[12]==cmp[i]){
+			aux=1;
 		}
 		else
 			i++;
-			j=0;
 	}
-	cout<<"\n La sucursal con mayor ventas es la "<<i+1<<endl;
-	// comprobar menor ventas
+	cout<<"\n La sucursal con mayor ventas fue la "<<i<<endl;
+	
+	//comprobar menor ventas
+	aux=0;
 	i=0;
-	j=0;
-	cmp=0;
-	while(cmp!=12){
-		if(mayor[i]<mayor[j+1]){
-			cmp++;
-			j++;
+	while(aux==0){
+		if(mayor[1]==cmp[i]){
+			aux=1;
 		}
 		else
 			i++;
-			j=0;
 	}
-	cout<<"La sucursal con menor ventas es la "<<i+1<<endl;
+	cout<<" La sucursal con menor ventas fue la "<<i<<endl;
 	cout<<"\nventa total compania es de "<<vtacomp<<" pesos\n";
 	system("pause");
 	system("cls");
-	//PROBAR x2
 }
 
 void programa15(){
